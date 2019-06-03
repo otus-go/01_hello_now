@@ -1,15 +1,18 @@
 package main
 
 import (
-	"io"
 	"fmt"
+	"io"
 	"os"
 
 	"github.com/beevik/ntp"
 )
 
+// for tests
+var ntpTime = ntp.Time
+
 func PrintNow(out io.Writer) {
-	res, err := ntp.Time("0.beevik-ntp.pool.ntp.org")
+	res, err := ntpTime("0.beevik-ntp.pool.ntp.org")
 	if err != nil {
 		return
 	}
