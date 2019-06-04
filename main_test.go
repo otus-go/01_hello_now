@@ -23,5 +23,8 @@ func TestPrintNow(t *testing.T) {
 func TestPrintNowError(t *testing.T) {
 	hello.SetError()
 
-	assert.Error(t, hello.PrintNow(&bytes.Buffer{}))
+	got := bytes.Buffer{}
+
+	assert.Error(t, hello.PrintNow(&got))
+	assert.Equal(t, "", got.String())
 }
