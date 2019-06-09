@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 
 	"github.com/beevik/ntp"
@@ -23,6 +24,6 @@ func PrintNow(out io.Writer) error {
 func main() {
 	err := PrintNow(os.Stdout)
 	if err != nil {
-		os.Exit(1)
+		log.Fatalf(err.Error())
 	}
 }
